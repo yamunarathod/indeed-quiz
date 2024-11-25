@@ -1,0 +1,1 @@
+(click)="answer(currentQuestion+1,option)"

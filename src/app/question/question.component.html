@@ -1,0 +1,158 @@
+<!-- <div class="w-full h-full">
+    <div class="w-full h-screen relative z-10"
+        style="background-image: url('./../../assets/bg.jpg'); background-repeat: no-repeat; background-size:cover;">
+
+        <div class="flex justify-between items-center px-6 py-4 pt-4">
+            <div class="quiz-header flex items-center justify-between w-full">
+                <span *ngIf="currentQuestion < questionList.length" class="text-[30px] font-semibold text-white">
+                    Question {{ currentQuestion + 1 }} / {{ questionList.length }}
+                </span>
+
+            </div>
+            <img src="./../../assets/Accenture Logo.svg" width="180" class="" alt="logo">
+        </div>
+
+        <ng-container *ngIf="!isQuizCompleted">
+            <div class="hidden">
+                <div class="score">
+                    <h5>{{points}} Points</h5>
+                </div>
+              
+            </div>
+
+            <div class="h-5 w-full bg-white shadow-2xl mt-2">
+                <div class="progress-bar  bg-success h-full my-6 rounded-r-xl border-y-[1.5px] bg-gradient-to-r from-[#AB4263] to-[#52006C]"
+                    role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuenow="25" aria-valuemin="0"
+                    aria-valuemax="100"></div>
+            </div>
+
+            <div class="mt-14 w-3/4 flex justify-center items-start mx-auto">
+
+                <div class="text-left items-start">
+                    <h3 class="text-[30px] text-left font-medium text-white">
+                        {{questionList[currentQuestion]?.questionText}}
+                    </h3>
+                 
+                </div>
+            </div>
+
+            <div class="flex flex-col justify-center my-8 w-3/4 mx-auto ">
+                <ol class="p-0 m-0 transform active:scale-95 transition-transform  "
+                    *ngFor="let option of questionList[currentQuestion]?.options">
+                    <li class="p-0 m-0 " (click)="answer(currentQuestion+1,option)">
+
+
+                        <div appChangeBg [isCorrect]="option.correct"
+                            class=" pl-8  py-3 border-2 border-cyan-50 text-[2rem] rounded-lg font-normal active:font-semibold text-white mb-2  transition duration-500 ease-in-out ">
+                            {{option.text}}
+                        </div>
+                    </li>
+
+                </ol>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="isQuizCompleted">
+            <div class="">
+                <div class="flex justify-center items-center h-[80%] text-center pt-20">
+
+                    <h1 class="text-[3rem] font-bold text-white text-center" *ngIf="points >=8 ">
+                        Congratulations! <br><br> <span>BIAS
+                            BUSTER</span><br> <br>
+                        <h2>YOU SCORED: {{points}} Points </h2><br>
+                        <img src="./../../assets/Asset 11.png" class="absolute left-[35%]" width="350px" alt="">
+                    </h1>
+
+                    <h1 class="text-[4rem] font-bold text-white text-center" *ngIf="points >=5 && points <=7">
+                        Congratulations! <br>
+                        <span class="text-[3.5rem] font-semibold">You are a Luminary</span> <br> <br>
+                        <span class="py-6 text-[4rem] font-normal"> YOU SCORED:{{points}}</span> <br> <br>
+                        <h2 class="text-[2rem] font-normal mt-4 pb-4">Everyone is a little bit biased <br> BE THE ONE to
+                            learn,
+                            recognize & overcome</h2>
+                    </h1>
+
+                    <p class="text-[3.5rem] font-bold text-white text-center item-center" *ngIf="points < 5">NO ONE
+                        LIKES
+                        BEING TOLD WHAT TO DO
+                        <br> <span class="text-[2rem] font-semibold">Embrace the beginner's mindset, reflect,
+                            acknowledge, & grow. </span><br><span class="py-6 text-[4rem]  font-bold capitalize">
+
+                            You scored: {{points}} Points</span> <br><span class="text-[2.5rem]">You are an
+                            explorer</span>
+                        <img src="./../../assets/Asset 12.png" class="absolute left-[45%]" width="150px">
+                    </p>
+
+                </div>
+            </div>
+
+        </ng-container>
+   
+
+
+
+    </div>
+
+</div> -->
+
+
+
+<div class="w-full h-full">
+    <div class="w-full h-screen relative z-10"
+        style="background-image: url('./../../assets/bg.jpg'); background-repeat: no-repeat; background-size: cover;">
+
+        <!-- Timer Display at the Top Right Corner -->
+        <div *ngIf="!isSegmentDisplay && !isQuizCompleted" class="timer-container" [class.low-time]="counter <= 10">
+            <h3>{{ counter }}</h3>
+        </div>
+
+        <!-- Segment Display -->
+        <div *ngIf="isSegmentDisplay" class="flex justify-center items-center h-full text-center">
+            <h1 class="text-[3rem] font-bold text-white">
+                {{ currentSegment }}
+            </h1>
+        </div>
+
+        <!-- Quiz Content -->
+        <ng-container *ngIf="!isSegmentDisplay && !isQuizCompleted">
+            <div class="flex justify-center items-center flex-col w-[100%] h-[100%]">
+                <div class="w-3/4 flex justify-center items-start mx-auto">
+                    <div class="text-left items-start">
+                        <h3 class="text-[30px] text-left font-medium text-white">
+                            {{ filteredQuestions[currentQuestion]?.questionText }}
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="flex flex-col justify-center my-8 w-3/4 mx-auto">
+                    <ol class="p-0 m-0 transform active:scale-95 transition-transform"
+                        *ngFor="let option of filteredQuestions[currentQuestion]?.options">
+                        <li class="p-0 m-0" (click)="answer(currentQuestion + 1, option)">
+                            <div
+                                class="pl-8 py-3 border-2 border-cyan-50 text-[2rem] rounded-lg font-normal active:font-semibold text-white mb-2 transition duration-500 ease-in-out">
+                                {{ option.text }}
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </ng-container>
+
+        <div class="flex justify-center items-center w-full h-full">
+            <!-- Segment Results -->
+            <div *ngIf="isQuizCompleted" class="segment-results">
+                <h2>Quiz Completed!</h2>
+                <div *ngFor="let segment of segments" class="segment-item">
+                    <h3>{{ segment }}</h3>
+                    <div class="score">
+                        {{ segmentScores[segment] ? segmentScores[segment] : 0 }} / {{ getSegmentQuestionCount(segment)
+                        }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</div>

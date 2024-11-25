@@ -1,0 +1,84 @@
+{
+    "questions": [
+        {
+            "segment": "General Knowledge",
+            "questionText": "1. Both Indeed & Glassdoor are owned by Recruit Holdings. Where is Recruit Holdings headquartered?",
+            "options": [
+                {
+                    "text": "Tokyo, Japan",
+                    "correct": true
+                },
+                {
+                    "text": "New York, USA"
+                },
+                {
+                    "text": "Dublin, Ireland"
+                },
+                {
+                    "text": "Positive Discrimination"
+                }
+            ],
+            "explanation": "TS uses a colon (:) to separate the property name from the property type"
+        },
+        {
+            "segment": "General Knowledge",
+            "questionText": "2. The percentage of information processed unconsciously by the human brain through experienced-based rules is:",
+            "options": [
+                {
+                    "text": "Less than 10%"
+                },
+                {
+                    "text": "Less than 50%"
+                },
+                {
+                    "text": "More than 90%"
+                },
+                {
+                    "text": "More than 99%",
+                    "correct": true
+                }
+            ],
+            "explanation": "enum is not used as a type in TypeScript"
+        },
+        {
+            "segment": "Product-Based",
+            "questionText": "1. What is the main purpose of using TypeScript in a JavaScript project?",
+            "options": [
+                {
+                    "text": "To add static type-checking to JavaScript",
+                    "correct": true
+                },
+                {
+                    "text": "To make JavaScript code execute faster"
+                },
+                {
+                    "text": "To replace JavaScript with a new language"
+                },
+                {
+                    "text": "To create a new web framework"
+                }
+            ],
+            "explanation": "TypeScript adds type safety to JavaScript, reducing runtime errors."
+        },
+        {
+            "segment": "Product-Based",
+            "questionText": "2. Which TypeScript feature helps to handle null or undefined values safely?",
+            "options": [
+                {
+                    "text": "Optional Chaining",
+                    "correct": true
+                },
+                {
+                    "text": "Arrow Functions"
+                },
+                {
+                    "text": "Classes"
+                },
+                {
+                    "text": "Interfaces"
+                }
+            ],
+            "explanation": "Optional Chaining helps access object properties without causing errors if an intermediate property is null or undefined."
+        }
+    ]
+}
